@@ -1,0 +1,14 @@
+#!/bin/bash -
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+cd "$DIR"
+
+cd ../..
+gulp compile
+
+cd "$DIR"
+
+rm -rf json/*.json \
+       yaml/*.yaml
+
+node ./typescript/_gen-mocks
